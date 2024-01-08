@@ -86,3 +86,19 @@ Replace ‘0’ at index 0 by ‘1’.
 Replace ‘1’ at index 1 by ‘0’.
 
 The minimum number of operations in transforming ‘STR’ to either of the two beautiful strings is 2.
+
+
+ int makeBeautiful(string str) {
+	int n = str.length();
+    int count1 = 0;  
+    int count2 = 0;  
+    for (int i = 0; i < n; i++) {
+        if ((i % 2 == 0 && str[i] == '1') || (i % 2 == 1 && str[i] == '0'))
+            count1++;
+        else
+            count2++;
+    }
+    
+    
+    return min(count1, count2);
+}
