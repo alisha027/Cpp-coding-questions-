@@ -41,3 +41,22 @@ a3b2cd2e5
 
 Explanation for Sample Output 2:
 In the given string 'a' is repeated 3 times, 'b' is repeated 2 times, 'c' is occuring single time, 'd' is repeating 2 times and 'e' is repeating 5times.
+
+
+ string getCompressedString(string &str) {
+    
+    string compressed;
+    int count = 1;
+
+    for (size_t i = 1; i <= str.length(); ++i) {
+        if (i < str.length() && str[i] == str[i - 1]) {
+            count++;
+        } else {
+            compressed += str[i - 1];
+            if (count > 1)
+                compressed += to_string(count);
+            count = 1;
+        }
+    }
+    return compressed;
+}
